@@ -1,0 +1,19 @@
+<div class="container">
+  <br>
+
+  <div class="form-group row">
+    <div class="col-sm">
+      <select class="form-control" (change)="masterSelected()" name="master"
+       [(ngModel)]="masterCategory">
+        <option *ngFor="let listing of listings">{{listing.name}}</option>
+      </select>
+      <select *ngIf="seletedFlag" class="form-control" name="sub" [(ngModel)]="subCategory">
+        <option *ngFor="let item of listings[index].items">{{item}}</option>
+      </select>
+    </div>
+  </div>
+
+  <p *ngIf="seletedFlag" class="text-info">master:{{masterCategory}}</p>
+  <p *ngIf="seletedFlag" class="text-info">sub:{{subCategory}}</p>
+
+</div>
